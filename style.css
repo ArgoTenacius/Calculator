@@ -1,0 +1,36 @@
+:root{
+    --button-color: #232426;
+    --calculator-background: #17191B;
+    --button-yellow: #FE9400;
+    --button-green: #2CBF60;
+    --main-number-color: #D8D9DB;
+    --secondary-number-color: #515253; 
+}
+
+body{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.calculator{
+    background: var(--calculator-background);
+    height: 600px;
+    width: 400px;
+}
+
+.button{
+    padding: 32px;
+    border-radius: 100%;
+    border: none;
+    background: var(--button-color);
+    cursor: pointer;
+}
+
+.yellow{
+    background: #FE9400;
+}
+
+.green{
+    background: #2CBF60;
+}
