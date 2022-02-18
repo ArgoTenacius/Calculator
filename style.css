@@ -6,9 +6,13 @@
     --button-red: #bf2c2c;
     --main-number-color: #D8D9DB;
     --secondary-number-color: #515253; 
+
+    --sub-number-size: 24px;
+    --number-size: 48px;
 }
 
 body{
+    height: auto;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -23,6 +27,24 @@ body{
 .result{
     width: 100%;
     height: 35%;
+    text-align: right;
+}
+
+.sub-number{
+    height: 30%;
+    font-size: var(--sub-number-size);
+    color: var(--secondary-number-color);
+    margin-right: 5%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.number{
+    height: 70%;
+    color: var(--main-number-color);
+    font-size: var(--number-size);
+    margin-right: 5%;
 }
 
 .buttons{
