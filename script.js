@@ -45,13 +45,26 @@ function calculatorSum(val1, val2){
     mainNumberText(result)
 }
 
+function calculatorSub(val1, val2){
+    operator = "="
+    secondNumberText(`${val1} - ${val2}`)
+    result = (Number(val1) - Number(val2))
+    mainNumberText(result)
+}
+
 function calculatorPlus(){
     operator = "+"
     resultCalculation("sum");
 }
 
+function calculatorMinus(){
+    operator = "-"
+    resultCalculation("sub")
+}
+
 function calculationEqual(){
     if(operator == "+") { resultCalculation("sum") }
+    if(operator == "-") { resultCalculation("sub") }
 }
 
 function resultCalculation(type){
@@ -60,6 +73,9 @@ function resultCalculation(type){
     if(finisher == false) {
         if(type == "sum") { 
             calculatorSum(firstNum, secondNum) 
+            calculatorReset()
+        }else if(type == "sub"){
+            calculatorSub(firstNum, secondNum)
             calculatorReset()
         }
     }else{
