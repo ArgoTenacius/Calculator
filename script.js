@@ -7,6 +7,7 @@ let secondNum = ""
 let result = 0
 let part = 0
 
+//#region you will probably dont need to mess here
 function mainNumberText(text_value){
     number.innerText = text_value;
 }
@@ -35,8 +36,8 @@ function calculatorReset(){
     part = 0
     firstNum = result
     secondNum = ""
-    //script to the number appear in the secondary
 }
+//#endregion
 
 function calculatorSum(val1, val2){
     operator = "="
@@ -52,6 +53,13 @@ function calculatorSub(val1, val2){
     mainNumberText(result)
 }
 
+function calculatorMul(val1, val2){
+    operator = "="
+    secondNumberText(`${val1} x ${val2}`)
+    result = (Number(val1) * Number(val2))
+    mainNumberText(result)
+}
+
 function calculatorPlus(){
     operator = "+"
     resultCalculation("sum");
@@ -62,9 +70,15 @@ function calculatorMinus(){
     resultCalculation("sub")
 }
 
+function calculatorMult(){
+    operator = "x"
+    resultCalculation("mul")
+}
+
 function calculationEqual(){
     if(operator == "+") { resultCalculation("sum") }
-    if(operator == "-") { resultCalculation("sub") }
+    else if(operator == "-") { resultCalculation("sub") }
+    else if(operator == "x") { resultCalculation("mul")}
 }
 
 function resultCalculation(type){
@@ -76,6 +90,9 @@ function resultCalculation(type){
             calculatorReset()
         }else if(type == "sub"){
             calculatorSub(firstNum, secondNum)
+            calculatorReset()
+        }else if(type == "mul"){
+            calculatorMul(firstNum, secondNum)
             calculatorReset()
         }
     }else{
