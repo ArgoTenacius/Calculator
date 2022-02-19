@@ -22,6 +22,7 @@ body{
     background: var(--calculator-background);
     height: 600px;
     width: 400px;
+    border-radius: 20px;
 }
 
 .result{
