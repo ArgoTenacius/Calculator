@@ -1,9 +1,11 @@
 :root{
     --button-color: #232426;
+    --button-hover-color: #5a5c61;
     --calculator-background: #17191B;
     --button-yellow: #FE9400;
     --button-green: #2CBF60;
     --button-red: #bf2c2c;
+    --button-hover-red: #e74040;
     --main-number-color: #D8D9DB;
     --secondary-number-color: #515253; 
 
@@ -16,6 +18,7 @@ body{
     width: 100vw;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .calculator{
@@ -23,12 +26,16 @@ body{
     height: 600px;
     width: 400px;
     border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 8px 0px #454545; 
+    box-shadow: 0px 0px 8px 0px #454545;
 }
 
 .result{
     width: 100%;
-    height: 35%;
+    height: 27.5%;
     text-align: right;
+    background-color: #090a0a;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .sub-number{
@@ -49,6 +56,7 @@ body{
 }
 
 .buttons{
+    margin-top: 7.5%;
     display: grid; 
     grid-auto-columns: 1fr; 
     grid-template-columns: 1fr 1fr 1fr 1fr; 
@@ -77,6 +85,15 @@ body{
     font-size: 32px;
 }
 
+.button:hover{
+    transition: 0.2s;
+    background-color: var(--button-hover-color);
+}
+
+.button:active{
+    transform: scale(0.8);
+}
+
 .double{
     border-radius: 20px;
     height: 64px;
@@ -102,10 +119,22 @@ body{
     background: #FE9400;
 }
 
+.yellow:hover{
+    background: #ffa21f;
+}
+
 .green{
     background: #2CBF60;
 }
 
+.green:hover{
+    background: #4af184;
+}
+
 .red{
     background: var(--button-red);
+}
+
+.red:hover{
+    background-color: var(--button-hover-red);
 }
