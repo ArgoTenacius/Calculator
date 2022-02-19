@@ -1,3 +1,4 @@
+
 let number = document.getElementById("number")
 let sub_number = document.getElementById("sub_number")
 
@@ -14,8 +15,8 @@ function operatorEqualizer(_operator){ //This script it's used when you press an
     part = 1
 }
 
-function mainNumberText(text_value){ number.innerText = text_value }
-function secondNumberText(text_value){ sub_number.innerText = `${text_value} ${operator}` }
+function mainNumberText(text_value){ number.innerText = String(text_value).substring(0, 16) }
+function secondNumberText(text_value){ sub_number.innerText = `${String(text_value).substring(0, 16)} ${operator}` }
 
 function numberAdd(value){
     if(part == 0){
