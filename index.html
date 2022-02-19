@@ -8,38 +8,46 @@
     <title>Calculator</title>
 </head>
 <body>
-    <section class="calculator">
-        <div class="result">
-            <div class="sub-number" id="sub_number"></div>
-            <div class="number" id="number"></div>
-        </div>
-        <div class="buttons">
-            <button class="button double clear red" onclick="fullReset()">C</button>
-            <button class="button" onclick="numberAddDot()">.</button>
-            <button class="button yellow" onclick="calculatorDivs()">/</button>
+    <main>
+        <section class="calculator">
+            <div class="result">
+                <div class="sub-number" id="sub_number"></div>
+                <div class="number" id="number"></div>
+            </div>
+            <div class="buttons">
+                <button class="button double clear red" onclick="fullReset()">C</button>
+                <button class="button" onclick="numberAddDot()">.</button>
+                <button class="button yellow" onclick="calculatorDivs()">/</button>
 
-            <button class="button" value="1" onclick="numberAdd(value)">1</button>
-            <button class="button" value="2" onclick="numberAdd(value)">2</button>
-            <button class="button" value="3" onclick="numberAdd(value)">3</button>
+                <button class="button" value="1" onclick="numberAdd(value)">1</button>
+                <button class="button" value="2" onclick="numberAdd(value)">2</button>
+                <button class="button" value="3" onclick="numberAdd(value)">3</button>
 
-            <button class="button yellow" onclick="calculatorMult()">X</button>
+                <button class="button yellow" onclick="calculatorMult()">X</button>
 
-            <button class="button" value="4" onclick="numberAdd(value)">4</button>
-            <button class="button" value="5" onclick="numberAdd(value)">5</button>
-            <button class="button" value="6" onclick="numberAdd(value)">6</button>
+                <button class="button" value="4" onclick="numberAdd(value)">4</button>
+                <button class="button" value="5" onclick="numberAdd(value)">5</button>
+                <button class="button" value="6" onclick="numberAdd(value)">6</button>
 
-            <button class="button yellow" onclick="calculatorMinus()">-</button>
+                <button class="button yellow" onclick="calculatorMinus()">-</button>
 
-            <button class="button" value="7" onclick="numberAdd(value)">7</button>
-            <button class="button" value="8" onclick="numberAdd(value)">8</button>
-            <button class="button" value="9" onclick="numberAdd(value)">9</button>
+                <button class="button" value="7" onclick="numberAdd(value)">7</button>
+                <button class="button" value="8" onclick="numberAdd(value)">8</button>
+                <button class="button" value="9" onclick="numberAdd(value)">9</button>
 
-            <button class="button yellow" onclick="calculatorPlus()">+</button>
+                <button class="button yellow" onclick="calculatorPlus()">+</button>
 
-            <button class="button double zero" value="0" onclick="numberAdd(value)">0</button>
-            <button class="button double equal green" onclick="calculationEqual()">=</button>
-        </div>
-    </section>
+                <button class="button double zero" value="0" onclick="numberAdd(value)">0</button>
+                <button class="button double equal green" onclick="calculationEqual()">=</button>
+            </div>
+        </section>
+    </main>
+    <footer class="copyright">
+        Copyright © 2022 ArgoTenacius 
+        <a href="https://github.com/ArgoTenacius" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="">
+        </a>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
