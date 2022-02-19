@@ -7,14 +7,15 @@ let secondNum = ""
 let result = 0
 let part = 0
 
-//#region you will probably dont need to mess here
-function mainNumberText(text_value){
-    number.innerText = text_value;
+function operatorEqualizer(_operator){ //This script it's used when you press an operator instead of equal
+    calculationEqual()
+    secondNum = ""
+    operator = _operator
+    part = 1
 }
 
-function secondNumberText(text_value){
-    sub_number.innerText = `${text_value} ${operator}`;
-}
+function mainNumberText(text_value){ number.innerText = text_value }
+function secondNumberText(text_value){ sub_number.innerText = `${text_value} ${operator}` }
 
 function numberAdd(value){
     if(part == 0){
@@ -24,8 +25,6 @@ function numberAdd(value){
         secondNum += value
         mainNumberText(secondNum)
     }
-
-    console.log(`${firstNum} | ${secondNum}`)
 }
 
 function numberAddDot(){
@@ -51,7 +50,6 @@ function calculatorReset(){
     firstNum = result
     secondNum = ""
 }
-//#endregion
 
 function fullReset(){
     part = 0
@@ -68,6 +66,7 @@ function calculatorSum(val1, val2){
     secondNumberText(`${val1} + ${val2}`)
     result = (Number(val1) + Number(val2))
     mainNumberText(result)
+    calculatorReset()
 }
 
 function calculatorSub(val1, val2){
@@ -75,6 +74,7 @@ function calculatorSub(val1, val2){
     secondNumberText(`${val1} - ${val2}`)
     result = (Number(val1) - Number(val2))
     mainNumberText(result)
+    calculatorReset()
 }
 
 function calculatorMul(val1, val2){
@@ -82,6 +82,7 @@ function calculatorMul(val1, val2){
     secondNumberText(`${val1} x ${val2}`)
     result = (Number(val1) * Number(val2))
     mainNumberText(result)
+    calculatorReset()
 }
 
 function calculatorDiv(val1, val2){
@@ -89,58 +90,43 @@ function calculatorDiv(val1, val2){
     secondNumberText(`${val1} / ${val2}`)
     result = (Number(val1) / Number(val2))
     mainNumberText(result)
+    calculatorReset()
 }
 
 function calculatorPlus(){
-    if(part == 1){
-        calculationEqual()
-        secondNum = ""
-        operator = "+"
-        part = 1
-    }else{
+    if(part == 1){ operatorEqualizer("+") }
+    else{
         operator = "+"
         resultCalculation("sum");
     }
 }
 
 function calculatorMinus(){
-    if(part == 1){
-        calculationEqual()
-        secondNum = ""
-        operator = "-"
-        part = 1
-    }else{
+    if(part == 1){ operatorEqualizer("-") }
+    else{
         operator = "-"
         resultCalculation("sub")
     }
 }
 
 function calculatorMult(){
-    if(part == 1){
-        calculationEqual()
-        secondNum = ""
-        operator = "x"
-        part = 1
-    }else{
+    if(part == 1){ operatorEqualizer("x") }
+    else{
         operator = "x"
         resultCalculation("mul")
     }
 }
 
 function calculatorDivs(){
-    if(part == 1){
-        calculationEqual()
-        secondNum = ""
-        operator = "/"
-        part = 1
-    }else{
+    if(part == 1){ operatorEqualizer("/") }
+    else{
         operator = "/"
         resultCalculation("div")
     }
 }
 
 function calculationEqual(){
-    if(operator == "+") { resultCalculation("sum") }
+    if     (operator == "+") { resultCalculation("sum") }
     else if(operator == "-") { resultCalculation("sub") }
     else if(operator == "x") { resultCalculation("mul") }
     else if(operator == "/") { resultCalculation("div") }
@@ -150,21 +136,12 @@ function resultCalculation(type){
     const finisher = partCheck();
 
     if(finisher == false) {
-        if(type == "sum") { 
-            calculatorSum(firstNum, secondNum) 
-            calculatorReset()
-        }else if(type == "sub"){
-            calculatorSub(firstNum, secondNum)
-            calculatorReset()
-        }else if(type == "mul"){
-            calculatorMul(firstNum, secondNum)
-            calculatorReset()
-        }else if(type == "div"){
-            calculatorDiv(firstNum, secondNum)
-            calculatorReset()
-        }
+        if     (type == "sum"){ calculatorSum(firstNum, secondNum) }
+        else if(type == "sub"){ calculatorSub(firstNum, secondNum) }
+        else if(type == "mul"){ calculatorMul(firstNum, secondNum) }
+        else if(type == "div"){ calculatorDiv(firstNum, secondNum) }
     }else{
-        if(firstNum == "") { firstNum = "0"}
+        if(firstNum == "") { firstNum = "0" }
         secondNumberText(firstNum)
         part = 1
     }
