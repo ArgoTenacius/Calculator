@@ -39,6 +39,16 @@ function calculatorReset(){
 }
 //#endregion
 
+function fullReset(){
+    part = 0
+    result = 0
+    operator =""
+    firstNum = ""
+    secondNum = ""
+    number.innerText = ""
+    sub_number.innerText = ""
+}
+
 function calculatorSum(val1, val2){
     operator = "="
     secondNumberText(`${val1} + ${val2}`)
@@ -68,23 +78,51 @@ function calculatorDiv(val1, val2){
 }
 
 function calculatorPlus(){
-    operator = "+"
-    resultCalculation("sum");
+    if(part == 1){
+        calculationEqual()
+        secondNum = ""
+        operator = "+"
+        part = 1
+    }else{
+        operator = "+"
+        resultCalculation("sum");
+    }
 }
 
 function calculatorMinus(){
-    operator = "-"
-    resultCalculation("sub")
+    if(part == 1){
+        calculationEqual()
+        secondNum = ""
+        operator = "-"
+        part = 1
+    }else{
+        operator = "-"
+        resultCalculation("sub")
+    }
 }
 
 function calculatorMult(){
-    operator = "x"
-    resultCalculation("mul")
+    if(part == 1){
+        calculationEqual()
+        secondNum = ""
+        operator = "x"
+        part = 1
+    }else{
+        operator = "x"
+        resultCalculation("mul")
+    }
 }
 
 function calculatorDivs(){
-    operator = "/"
-    resultCalculation("div")
+    if(part == 1){
+        calculationEqual()
+        secondNum = ""
+        operator = "/"
+        part = 1
+    }else{
+        operator = "/"
+        resultCalculation("div")
+    }
 }
 
 function calculationEqual(){
