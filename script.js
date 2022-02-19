@@ -28,6 +28,20 @@ function numberAdd(value){
     console.log(`${firstNum} | ${secondNum}`)
 }
 
+function numberAddDot(){
+    if(part == 0){
+        if(firstNum.includes(".") == false){
+            firstNum += "."
+            mainNumberText(firstNum)
+        }
+    }else{
+        if(secondNum.includes(".") == false){
+            secondNum += "."
+            secondNumberText(secondNum)
+        }
+    }
+}
+
 function partCheck(){
     if (part == 1) { return false } else { return true } 
 }
