@@ -11,8 +11,8 @@ function mainNumberText(text_value){
     number.innerText = text_value;
 }
 
-function secondNumberText(text_value, text_operator){
-    sub_number.innerText = `${text_value} ${text_operator}`;
+function secondNumberText(text_value){
+    sub_number.innerText = `${text_value} ${operator}`;
 }
 
 function numberAdd(value){
@@ -33,19 +33,25 @@ function partCheck(){
 
 function calculatorReset(){
     part = 0
-    firstNum = ""
+    firstNum = result
     secondNum = ""
     //script to the number appear in the secondary
 }
 
 function calculatorSum(val1, val2){
+    operator = "="
+    secondNumberText(`${val1} + ${val2}`)
     result = (Number(val1) + Number(val2))
-    console.log(result)
+    mainNumberText(result)
 }
 
 function calculatorPlus(){
     operator = "+"
     resultCalculation("sum");
+}
+
+function calculationEqual(){
+    if(operator == "+") { resultCalculation("sum") }
 }
 
 function resultCalculation(type){
@@ -57,7 +63,8 @@ function resultCalculation(type){
             calculatorReset()
         }
     }else{
-        secondNumberText(firstNum, operator)
+        if(firstNum == "") { firstNum = "0"}
+        secondNumberText(firstNum)
         part = 1
     }
 }
