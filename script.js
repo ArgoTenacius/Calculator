@@ -1,6 +1,7 @@
 let number = document.getElementById("number")
 let sub_number = document.getElementById("sub_number")
 
+let operator = ""
 let firstNum = ""
 let secondNum = ""
 let result = 0
@@ -10,8 +11,8 @@ function mainNumberText(text_value){
     number.innerText = text_value;
 }
 
-function secondNumberText(text_value){
-    sub_number.innerText = text_value
+function secondNumberText(text_value, text_operator){
+    sub_number.innerText = `${text_value} ${text_operator}`;
 }
 
 function numberAdd(value){
@@ -43,6 +44,7 @@ function calculatorSum(val1, val2){
 }
 
 function calculatorPlus(){
+    operator = "+"
     resultCalculation("sum");
 }
 
@@ -55,7 +57,7 @@ function resultCalculation(type){
             calculatorReset()
         }
     }else{
-        secondNumberText(firstNum)
+        secondNumberText(firstNum, operator)
         part = 1
     }
 }
