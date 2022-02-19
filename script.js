@@ -60,6 +60,13 @@ function calculatorMul(val1, val2){
     mainNumberText(result)
 }
 
+function calculatorDiv(val1, val2){
+    operator = "="
+    secondNumberText(`${val1} / ${val2}`)
+    result = (Number(val1) / Number(val2))
+    mainNumberText(result)
+}
+
 function calculatorPlus(){
     operator = "+"
     resultCalculation("sum");
@@ -75,10 +82,16 @@ function calculatorMult(){
     resultCalculation("mul")
 }
 
+function calculatorDivs(){
+    operator = "/"
+    resultCalculation("div")
+}
+
 function calculationEqual(){
     if(operator == "+") { resultCalculation("sum") }
     else if(operator == "-") { resultCalculation("sub") }
-    else if(operator == "x") { resultCalculation("mul")}
+    else if(operator == "x") { resultCalculation("mul") }
+    else if(operator == "/") { resultCalculation("div") }
 }
 
 function resultCalculation(type){
@@ -93,6 +106,9 @@ function resultCalculation(type){
             calculatorReset()
         }else if(type == "mul"){
             calculatorMul(firstNum, secondNum)
+            calculatorReset()
+        }else if(type == "div"){
+            calculatorDiv(firstNum, secondNum)
             calculatorReset()
         }
     }else{
